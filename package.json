@@ -1,0 +1,21 @@
+{
+  "name": "cut-file-stream",
+  "version": "1.0.0",
+  "description": "cut file stream by time",
+  "main": "index.js",
+  "scripts": {
+    "test": "index.js"
+  },
+  "keywords": [
+    "file",
+    "stream",
+    "date",
+    "log",
+    "morgan"
+  ],
+  "author": "Shuxiang",
+  "license": "MIT",
+  "directories": {
+    "test": "test"
+  }
+}

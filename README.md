@@ -6,12 +6,13 @@ npm install cut-file-stream
 ##usage
 
 format filename：
-YYYY => Year
-MM => Month
-DD => Day
-H => Hour
-M => minute
-S => Second
+
+- YYYY => Year
+- MM => Month
+- DD => Day
+- H => Hour
+- M => minute
+- S => Second
 
 cut file stream by day
 ```
@@ -38,7 +39,9 @@ var stream = cfs.getStream({
 });
 ```
 
-if no filename, stdout will return;
+if no filename, stdout will return
 
-if no timeZone, default timeZone will be beijing: UTC+8;
+if no timeZone, default timeZone will be beijing: UTC+8
+
+
 

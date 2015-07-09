@@ -1,7 +1,11 @@
 #Cut Log File Stream
 
+support morgan
+
 ##install
-npm install cut-file-stream
+```
+npm install --save cut-file-stream
+```
 
 ##usage
 

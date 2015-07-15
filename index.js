@@ -3,11 +3,8 @@
  */
 var fs = require('fs');
 var defaultDateTimeFormat = 'YYYY-MM-DD H:M:S';
-var defaultFileNameFormat = 'access-YYYYMMDD.log';
 var defaultTimeZone = 8;
 var timeZone;
-var customFileNameFormat;
-var stream = {};
 var res = {};
 
 /**
@@ -19,7 +16,6 @@ function getDateTime(f, tz) {
     var now = new Date();
     now = now.getTime() + now.getTimezoneOffset() * 60000 + tz * 60  * 60 * 1000;
     now = new Date(now);
-    f = f || defaultDateTimeFormat;
 
     f = f.replace(/YYYY/, now.getFullYear())
     .replace(/MM/, fillZero(now.getMonth() + 1))
@@ -39,9 +35,6 @@ function fillZero(num) {
 }
 
 function getFileName(formatStr) {
-    formatStr = formatStr || defaultFileNameFormat;
-
-    // 中国在东八区
     return getDateTime(formatStr, timeZone);
 }
 
@@ -50,29 +43,27 @@ res.getStream = function(args) {
         return process.stdout;
     }
 
-    customFileNameFormat = args.filename;
-    timeZone = 'number' === typeof args.timeZone ?  args.timeZone : defaultTimeZone;
+    timeZone = ('number' === typeof args.timeZone) ?  args.timeZone : defaultTimeZone;
 
-    var filename = getFileName(args.filename);
-
-    if(!stream.c) {
-        stream.f = filename;
-        stream.c = fs.createWriteStream(filename, {flags: 'a'});
-    }
-
-    return stream;
+    return new Stream(args.filename);
 };
 
-stream.write = function(data, encoding) {
-    var filename = getFileName(customFileNameFormat);
+function Stream(str) {
+    this.rex = str;
+    this.fn = getFileName(str);
+    this.s = fs.createWriteStream(this.fn, {flags: 'a'});
+}
 
-    if (filename !== stream.f) {
-        stream.c.end();
-        stream.f = filename;
-        stream.c = fs.createWriteStream(filename, {flags: 'a'});
+Stream.prototype.write= function(data, encoding) {
+    var filename = getFileName(this.rex);
+
+    if (filename !== this.fn) {
+        this.s.end();
+        this.fn = filename;
+        this.s = fs.createWriteStream(filename, {flags: 'a'});
     }
 
-    stream.c.write(data, encoding);
+    this.s.write(data, encoding);
 };
 
 

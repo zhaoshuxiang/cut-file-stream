@@ -5,12 +5,24 @@
 
 var cfs = require('../index.js');
 
+/** print access log **/
 var stream = cfs.getStream({
-    filename: 'test-YYYYMMDDHM.log',
+    filename: 'access-YYYYMMDDHM.log',
     timeZone: 0
 });
 
 setInterval(function() {
-    stream.write((new Date()).toLocaleTimeString() + '\n', 'utf8');
+    stream.write('log: ' + (new Date()).toLocaleTimeString() + '\n', 'utf8');
 }, 10);
+
+/** print error log **/
+
+var stream1 = cfs.getStream({
+    filename: 'error-YYYYMMDDHM.log',
+    timeZone: 0
+});
+
+setInterval(function() {
+    stream1.write('error: ' + (new Date()).toLocaleTimeString() + '\n', 'utf8');
+}, 300);
 

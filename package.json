@@ -1,6 +1,6 @@
 {
   "name": "cut-file-stream",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "cut file stream by time",
   "main": "index.js",
   "scripts": {

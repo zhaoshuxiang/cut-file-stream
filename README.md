@@ -2,12 +2,12 @@
 
 support morgan
 
-##install
+##Install
 ```
 npm install --save cut-file-stream
 ```
 
-##usage
+##Usage
 
 format filename：
 
@@ -51,7 +51,7 @@ if no timeZone, default timeZone will be beijing: UTC+8
 
 2015/07/16  Support multi log file steam 
 
----
+##Contact
 
 if you have any question, please contact me zhaoshuxiang2010@gmail.com
 

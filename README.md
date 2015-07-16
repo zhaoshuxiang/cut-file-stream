@@ -47,6 +47,10 @@ if no filename, stdout will return
 
 if no timeZone, default timeZone will be beijing: UTC+8
 
+##Bug fixed list
+
+2015/07/16  Support multi log file steam 
+
 ---
 
 if you have any question, please contact me zhaoshuxiang2010@gmail.com

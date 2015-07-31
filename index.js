@@ -14,10 +14,9 @@ var res = {};
  */
 function getDateTime(f, tz) {
 	var now = new Date();
+	tz = tz || defaultTimeZone;
 	now = now.getTime() + now.getTimezoneOffset() * 60000 + tz * 60  * 60 * 1000;
 	now = new Date(now);
-
-	tz = tz || defaultTimeZone;
 
 	f = f.replace(/YYYY/, now.getFullYear())
 		.replace(/MM/, fillZero(now.getMonth() + 1))

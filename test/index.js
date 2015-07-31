@@ -5,6 +5,9 @@
 
 var cfs = require('../index.js');
 
+console.log(cfs.getDateTime('YYYYMMDDHM'));
+//return;
+
 /** print access log **/
 var stream = cfs.getStream({
     filename: 'access-YYYYMMDDHM.log',
@@ -16,7 +19,6 @@ setInterval(function() {
 }, 10);
 
 /** print error log **/
-
 var stream1 = cfs.getStream({
     filename: 'error-YYYYMMDDHM.log',
     timeZone: 0
@@ -25,4 +27,6 @@ var stream1 = cfs.getStream({
 setInterval(function() {
     stream1.write('error: ' + (new Date()).toLocaleTimeString() + '\n', 'utf8');
 }, 300);
+
+
 

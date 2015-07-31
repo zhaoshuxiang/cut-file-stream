@@ -44,12 +44,19 @@ var stream = cfs.getStream({
 });
 ```
 
+Get format datetime
+```js
+var cts = require('cut-file-stream');
+var stream = cts.getDateTime('YYYYMMDDHM');
+// return 201507311230
+```
+
 If no filename, stdout will return
 
 If no timeZone, default timeZone will be BeiJing: UTC+8
 
 ## Bug fixed list
-
+2015/07/31  Export method getDateTime
 2015/07/16  Support multi log file steam 
 
 ## Contact

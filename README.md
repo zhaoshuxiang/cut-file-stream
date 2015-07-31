@@ -1,15 +1,16 @@
-#Cut Log File Stream
+# Cut Log File Stream
 
-support morgan
+Support morgan  
+Support timeZone  
 
-##Install
+## Install
 ```
 npm install --save cut-file-stream
 ```
 
-##Usage
+## Usage
 
-format filename：
+Format filename：
 
 - YYYY => Year
 - MM => Month
@@ -18,8 +19,8 @@ format filename：
 - M => minute
 - S => Second
 
-cut file stream by day
-```
+Cut file stream by day
+```js
 var cts = require('cut-file-stream');
 var stream = cfs.getStream({
     filename: 'custom-string-YYYYMMDD-custom-string.log',
@@ -27,33 +28,33 @@ var stream = cfs.getStream({
 });
 ```
 
-cut file stream by hour
-```
+Cut file stream by hour
+```js
 var cts = require('cut-file-stream');
 var stream = cfs.getStream({
     filename: 'custom-string-YYYYMMDDH-custom-string.log',
 });
 ```
 
-cut file stream by minute
-```
+Cut file stream by minute
+```js
 var cts = require('cut-file-stream');
 var stream = cfs.getStream({
     filename: 'custom-string-YYYYMMDDHM-custom-string.log'
 });
 ```
 
-if no filename, stdout will return
+If no filename, stdout will return
 
-if no timeZone, default timeZone will be beijing: UTC+8
+If no timeZone, default timeZone will be BeiJing: UTC+8
 
-##Bug fixed list
+## Bug fixed list
 
 2015/07/16  Support multi log file steam 
 
-##Contact
+## Contact
 
-if you have any question, please contact me zhaoshuxiang2010@gmail.com
+If you have any question, please contact me zhaoshuxiang2010@gmail.com
 
 
 
